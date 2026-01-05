@@ -52,17 +52,28 @@ export interface ScenarioConfig {
   cacheStatus: CacheStatus
 }
 
+// 改进百分比类型
+export interface ImprovementMetrics {
+  lcp: number
+  fid: number
+  cls: number
+  fcp: number
+  ttfb?: number
+  inp?: number
+  tti?: number
+  si?: number
+  totalSize?: number
+  requestCount?: number
+  jsSize?: number
+  cssSize?: number
+  [key: string]: number | undefined
+}
+
 // 对比数据
 export interface ComparisonData {
   solution: OptimizationSolution
   baseline: PerformanceMetrics
   optimized: PerformanceMetrics
-  improvement: {
-    lcp: number
-    fid: number
-    cls: number
-    fcp: number
-    [key: string]: number
-  }
+  improvement: ImprovementMetrics
 }
 

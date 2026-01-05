@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import type { ScenarioConfig, PerformanceMetrics, ComparisonData, OptimizationSolution } from '~/types'
+import type { ScenarioConfig, PerformanceMetrics, ComparisonData, OptimizationSolution, ImprovementMetrics } from '~/types'
 import { simulatePerformanceMetrics, calculateImprovement } from '~/utils/performance'
 
 export function usePerformance() {
@@ -25,7 +25,7 @@ export function usePerformance() {
       const data = await $fetch<{
         baseline: PerformanceMetrics
         optimized: PerformanceMetrics
-        improvement: Record<string, number>
+        improvement: ImprovementMetrics
       }>('/api/performance/comparison', {
         method: 'POST',
         body: {
@@ -75,7 +75,7 @@ export function usePerformance() {
       const data = await $fetch<{
         baseline: PerformanceMetrics
         optimized: PerformanceMetrics
-        improvement: Record<string, number>
+        improvement: ImprovementMetrics
       }>('/api/performance/comparison', {
         method: 'POST',
         body: {

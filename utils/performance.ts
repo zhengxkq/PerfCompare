@@ -1,4 +1,4 @@
-import type { NetworkCondition, CPUThrottle, DeviceType, CacheStatus, PerformanceMetrics } from '~/types'
+import type { NetworkCondition, CPUThrottle, DeviceType, CacheStatus, PerformanceMetrics, ImprovementMetrics } from '~/types'
 
 // 网络条件配置
 export const networkConfigs: Record<NetworkCondition, { download: number; upload: number; latency: number }> = {
@@ -85,7 +85,7 @@ export function simulatePerformanceMetrics(
 }
 
 // 计算改进百分比
-export function calculateImprovement(baseline: PerformanceMetrics, optimized: PerformanceMetrics): Record<string, number> {
+export function calculateImprovement(baseline: PerformanceMetrics, optimized: PerformanceMetrics): ImprovementMetrics {
   return {
     lcp: Math.round(((baseline.lcp - optimized.lcp) / baseline.lcp) * 100),
     fcp: Math.round(((baseline.fcp - optimized.fcp) / baseline.fcp) * 100),
