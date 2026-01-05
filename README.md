@@ -50,12 +50,12 @@
 
 ## 技术栈
 
-- **框架**: Nuxt 3 (Vue 3 + SSR)
-- **数据库**: MongoDB
-- **样式**: Tailwind CSS
-- **图表**: Chart.js
+- **框架**: Nuxt 4.2.2 (Vue 3.5 + SSR)
+- **数据库**: MongoDB 6.7
+- **样式**: Tailwind CSS 6.12
+- **图表**: Chart.js 4.4
 - **UI组件**: Headless UI + Heroicons
-- **语言**: TypeScript
+- **语言**: TypeScript 5.7
 
 ## 快速开始
 

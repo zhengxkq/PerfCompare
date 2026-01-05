@@ -23,7 +23,7 @@ const routes = [
   }
 ]`,
     metrics: {
-      lcp: 0,
+      lcp: 1,
       fid: 0,
       cls: 0,
       fcp: 0,
