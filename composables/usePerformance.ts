@@ -3,18 +3,20 @@ import type { ScenarioConfig, PerformanceMetrics, ComparisonData, OptimizationSo
 import { simulatePerformanceMetrics, calculateImprovement } from '~/utils/performance'
 
 export function usePerformance() {
-  const scenario = ref<ScenarioConfig>({
+  // 使用 useState 创建共享状态，确保所有组件使用同一个 ref 实例
+  const scenario = useState<ScenarioConfig>('performance-scenario', () => ({
     network: '4g',
     cpuThrottle: 'none',
     deviceType: 'mid-range',
     cacheStatus: 'first-load'
-  })
+  }))
   
   const loading = ref(false)
   const metrics = ref<PerformanceMetrics | null>(null)
   
   // 更新场景配置
   const updateScenario = (config: Partial<ScenarioConfig>) => {
+    console.log('updateScenario', config)
     scenario.value = { ...scenario.value, ...config }
   }
   

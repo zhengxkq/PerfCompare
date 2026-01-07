@@ -88,8 +88,12 @@ onMounted(() => {
 })
 
 // 监听场景变化，重新加载数据
-watch(() => scenario.value, () => {
+watch(scenario, (newScenario) => {
+  console.log('scenario changed', newScenario)
+  console.log('solution', solution.value)
+  console.log('comparison', comparison.value)
   if (solution.value) {
+    console.log('loading data')
     loadData()
   }
 }, { deep: true })
