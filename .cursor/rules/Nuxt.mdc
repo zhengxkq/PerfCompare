@@ -1,0 +1,22 @@
+---
+globs: **/*.ts, **/*.vue, **/*.d.ts
+alwaysApply: false
+---
+
+# Nuxt 特定指南
+
+## 遵循 Nuxt 3 目录结构（例如：pages/, components/, composables/）。
+
+- 使用 Nuxt 内置功能：
+
+- 组件和组合式函数的自动导入。
+
+- pages/目录下的基于文件的路由。
+
+- server/目录下的服务端路由。
+
+- 利用 Nuxt 插件实现全局功能。
+
+- 使用 useFetch和 useAsyncData进行数据获取。
+
+- 使用 Nuxt 的 useHead和 useSeoMeta实现 SEO 最佳实践。

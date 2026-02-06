@@ -70,11 +70,29 @@
 </template>
 
 <script setup lang="ts">
-const { solutions, categories, getSolutionsByCategory, fetchSolutions, loading } = useSolutions()
+import { solutionsDataFallback } from '~/composables/useSolutions'
+import type { OptimizationSolution } from '~/types'
 
-onMounted(async () => {
-  await fetchSolutions()
-})
+// 服务端用 useAsyncData 拉取，首屏 HTML 即包含完整列表（完整 SSR）
+const { data: solutionsData, pending } = await useAsyncData(
+  'index-solutions',
+  async () => {
+    try {
+      const data = await $fetch<OptimizationSolution[]>('/api/solutions')
+      return (data?.length ?? 0) > 0 ? data : solutionsDataFallback
+    } catch {
+      return solutionsDataFallback
+    }
+  }
+)
+
+const solutions = computed(() => solutionsData.value ?? [])
+const categories = computed(() =>
+  Array.from(new Set(solutions.value.map((s) => s.category)))
+)
+const getSolutionsByCategory = (category: string) =>
+  solutions.value.filter((s) => s.category === category)
+const loading = computed(() => pending.value)
 
 const getCostLabel = (cost: string) => {
   const labels: Record<string, string> = {

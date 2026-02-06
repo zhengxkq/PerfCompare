@@ -1,8 +1,8 @@
 import { ref, computed } from 'vue'
 import type { OptimizationSolution } from '~/types'
 
-// 优化方案数据（作为fallback）
-const solutionsDataFallback: OptimizationSolution[] = [
+// 优化方案数据（作为 fallback），供 SSR/useAsyncData 使用
+export const solutionsDataFallback: OptimizationSolution[] = [
   {
     id: 'route-lazy-loading',
     name: '路由级懒加载',
