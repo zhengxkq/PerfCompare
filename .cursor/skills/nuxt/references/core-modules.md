@@ -3,13 +3,13 @@ name: nuxt-modules
 description: Creating and using Nuxt modules to extend framework functionality
 ---
 
-# Nuxt Modules
+# Nuxt 模块
 
-Modules extend Nuxt's core functionality. They run at build time and can add components, composables, plugins, and configuration.
+模块用于扩展 Nuxt 的核心能力，在构建时运行，可添加组件、composables、插件和配置。
 
-## Using Modules
+## 使用模块
 
-Install and add to `nuxt.config.ts`:
+安装后写入 `nuxt.config.ts`：
 
 ```ts
 // nuxt.config.ts
@@ -29,9 +29,9 @@ export default defineNuxtConfig({
 })
 ```
 
-## Creating Modules
+## 创建模块
 
-### Basic Module
+### 基础模块
 
 ```ts
 // modules/my-module.ts
@@ -51,7 +51,7 @@ export default defineNuxtModule({
 })
 ```
 
-### Adding Components
+### 添加组件
 
 ```ts
 // modules/ui/index.ts
@@ -76,7 +76,7 @@ export default defineNuxtModule({
 })
 ```
 
-### Adding Composables
+### 添加 Composables
 
 ```ts
 // modules/utils/index.ts
@@ -98,7 +98,7 @@ export default defineNuxtModule({
 })
 ```
 
-### Adding Plugins
+### 添加插件
 
 ```ts
 // modules/analytics/index.ts
@@ -116,7 +116,7 @@ export default defineNuxtModule({
 })
 ```
 
-Plugin file:
+插件文件：
 
 ```ts
 // modules/analytics/runtime/plugin.ts
@@ -127,7 +127,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 })
 ```
 
-### Adding Server Routes
+### 添加服务端路由
 
 ```ts
 // modules/api/index.ts
@@ -145,7 +145,7 @@ export default defineNuxtModule({
 })
 ```
 
-### Extending Config
+### 扩展配置
 
 ```ts
 // modules/config/index.ts
@@ -167,7 +167,7 @@ export default defineNuxtModule({
 })
 ```
 
-## Module Hooks
+## 模块钩子
 
 ```ts
 export default defineNuxtModule({
@@ -196,9 +196,9 @@ export default defineNuxtModule({
 })
 ```
 
-## Module Options
+## 模块选项
 
-Type-safe options with defaults:
+带默认值的类型安全选项：
 
 ```ts
 export interface ModuleOptions {
@@ -225,7 +225,7 @@ export default defineNuxtModule<ModuleOptions>({
 })
 ```
 
-Usage:
+使用方式：
 
 ```ts
 // nuxt.config.ts
@@ -238,9 +238,9 @@ export default defineNuxtConfig({
 })
 ```
 
-## Local Modules
+## 本地模块
 
-Place in `modules/` directory:
+放在 `modules/` 目录下：
 
 ```
 modules/
@@ -252,7 +252,7 @@ modules/
 │       └── plugin.ts
 ```
 
-Auto-registered or manually added:
+可自动注册或手动添加：
 
 ```ts
 // nuxt.config.ts
@@ -263,7 +263,7 @@ export default defineNuxtConfig({
 })
 ```
 
-## Module Dependencies
+## 模块依赖
 
 ```ts
 export default defineNuxtModule({

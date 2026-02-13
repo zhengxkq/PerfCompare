@@ -3,11 +3,11 @@ name: components-auto-imports
 description: Auto-imported components, lazy loading, and hydration strategies
 ---
 
-# Components Auto-imports
+# 组件自动导入
 
-Nuxt automatically imports Vue components from `app/components/` directory.
+Nuxt 会自动从 `app/components/` 目录导入 Vue 组件。
 
-## Basic Auto-imports
+## 基础自动导入
 
 ```
 components/
@@ -26,11 +26,11 @@ components/
 </template>
 ```
 
-## Naming Conventions
+## 命名约定
 
-### Nested Directory Names
+### 嵌套目录名
 
-Component names include directory path:
+组件名会包含目录路径：
 
 ```
 components/
@@ -44,7 +44,7 @@ components/
         └── Dialog.vue   → <UiModalDialog />
 ```
 
-### Disable Path Prefix
+### 关闭路径前缀
 
 ```ts
 // nuxt.config.ts
@@ -58,14 +58,14 @@ export default defineNuxtConfig({
 })
 ```
 
-With `pathPrefix: false`:
+使用 `pathPrefix: false` 时：
 ```
 components/base/Button.vue → <Button />
 ```
 
-## Lazy Loading
+## 懒加载
 
-Prefix with `Lazy` for dynamic imports:
+使用 `Lazy` 前缀实现动态导入：
 
 ```vue
 <script setup lang="ts">
@@ -79,18 +79,18 @@ const showChart = ref(false)
 </template>
 ```
 
-Benefits:
-- Reduces initial bundle size
-- Code-splits component into separate chunk
-- Loads on-demand
+好处：
+- 减小初始包体积
+- 将组件拆成独立 chunk
+- 按需加载
 
-## Lazy Hydration Strategies
+## 懒水合策略
 
-Control when lazy components become interactive:
+控制懒加载组件何时变为可交互：
 
 ### `hydrate-on-visible`
 
-Hydrate when component enters viewport:
+组件进入视口时水合：
 
 ```vue
 <template>
@@ -100,7 +100,7 @@ Hydrate when component enters viewport:
 
 ### `hydrate-on-idle`
 
-Hydrate when browser is idle:
+浏览器空闲时水合：
 
 ```vue
 <template>
@@ -110,7 +110,7 @@ Hydrate when browser is idle:
 
 ### `hydrate-on-interaction`
 
-Hydrate on user interaction:
+在用户交互时水合：
 
 ```vue
 <template>
@@ -124,7 +124,7 @@ Hydrate on user interaction:
 
 ### `hydrate-on-media-query`
 
-Hydrate when media query matches:
+媒体查询匹配时水合：
 
 ```vue
 <template>
@@ -134,7 +134,7 @@ Hydrate when media query matches:
 
 ### `hydrate-after`
 
-Hydrate after delay (milliseconds):
+延迟指定毫秒后水合：
 
 ```vue
 <template>
@@ -144,7 +144,7 @@ Hydrate after delay (milliseconds):
 
 ### `hydrate-when`
 
-Hydrate on condition:
+在条件满足时水合：
 
 ```vue
 <script setup lang="ts">
@@ -158,7 +158,7 @@ const isReady = ref(false)
 
 ### `hydrate-never`
 
-Never hydrate (static only):
+永不水合（仅静态渲染）：
 
 ```vue
 <template>
@@ -166,7 +166,7 @@ Never hydrate (static only):
 </template>
 ```
 
-### Hydration Event
+### 水合事件
 
 ```vue
 <template>
@@ -180,9 +180,9 @@ function onChartReady() {
 </script>
 ```
 
-## Client/Server Components
+## 客户端/服务端组件
 
-### Client-only (`.client.vue`)
+### 仅客户端（`.client.vue`）
 
 ```
 components/
@@ -196,7 +196,7 @@ components/
 </template>
 ```
 
-### Server-only (`.server.vue`)
+### 仅服务端（`.server.vue`）
 
 ```
 components/
@@ -210,7 +210,7 @@ components/
 </template>
 ```
 
-Requires experimental flag:
+需要开启实验性选项：
 
 ```ts
 // nuxt.config.ts
@@ -221,7 +221,7 @@ export default defineNuxtConfig({
 })
 ```
 
-### Paired Components
+### 配对组件
 
 ```
 components/
@@ -229,9 +229,9 @@ components/
 └── Comments.server.vue  # SSR version
 ```
 
-Server version renders during SSR, client version takes over after hydration.
+服务端版本在 SSR 时渲染，水合后由客户端版本接管。
 
-## Dynamic Components
+## 动态组件
 
 ```vue
 <script setup lang="ts">
@@ -246,9 +246,9 @@ const dynamicComponent = resolveComponent('MyButton')
 </template>
 ```
 
-## Direct Imports
+## 显式导入
 
-Bypass auto-imports when needed:
+需要时绕过自动导入：
 
 ```vue
 <script setup lang="ts">
@@ -256,7 +256,7 @@ import { LazyMountainsList, NuxtLink } from '#components'
 </script>
 ```
 
-## Custom Directories
+## 自定义目录
 
 ```ts
 // nuxt.config.ts
@@ -269,9 +269,9 @@ export default defineNuxtConfig({
 })
 ```
 
-## Global Components
+## 全局组件
 
-Register globally (creates async chunks):
+全局注册（会生成异步 chunk）：
 
 ```ts
 // nuxt.config.ts
@@ -283,14 +283,14 @@ export default defineNuxtConfig({
 })
 ```
 
-Or use `.global.vue` suffix:
+或使用 `.global.vue` 后缀：
 
 ```
 components/
 └── Icon.global.vue  → Available globally
 ```
 
-## Disabling Component Auto-imports
+## 关闭组件自动导入
 
 ```ts
 // nuxt.config.ts
@@ -301,9 +301,9 @@ export default defineNuxtConfig({
 })
 ```
 
-## Library Authors
+## 库作者
 
-Register components from npm package:
+从 npm 包注册组件：
 
 ```ts
 // my-ui-lib/nuxt.ts

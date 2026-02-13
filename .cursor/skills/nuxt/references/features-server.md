@@ -3,13 +3,13 @@ name: server-routes
 description: API routes, server middleware, and Nitro server engine in Nuxt
 ---
 
-# Server Routes
+# 服务端路由
 
-Nuxt includes Nitro server engine for building full-stack applications with API routes and server middleware.
+Nuxt 内置 Nitro 服务端引擎，用于通过 API 路由和服务端中间件构建全栈应用。
 
-## API Routes
+## API 路由
 
-Create files in `server/api/` directory:
+在 `server/api/` 目录下创建文件：
 
 ```ts
 // server/api/hello.ts
@@ -18,9 +18,9 @@ export default defineEventHandler((event) => {
 })
 ```
 
-Access at `/api/hello`.
+访问路径为 `/api/hello`。
 
-### HTTP Methods
+### HTTP 方法
 
 ```ts
 // server/api/users.get.ts - GET /api/users
@@ -48,7 +48,7 @@ export default defineEventHandler((event) => {
 })
 ```
 
-### Route Parameters
+### 路由参数
 
 ```ts
 // server/api/posts/[id].ts
@@ -64,7 +64,7 @@ export default defineEventHandler((event) => {
 })
 ```
 
-### Query Parameters
+### 查询参数
 
 ```ts
 // server/api/search.ts
@@ -76,7 +76,7 @@ export default defineEventHandler((event) => {
 })
 ```
 
-### Request Body
+### 请求体
 
 ```ts
 // server/api/submit.post.ts
@@ -87,7 +87,7 @@ export default defineEventHandler(async (event) => {
 })
 ```
 
-### Headers and Cookies
+### 请求头与 Cookie
 
 ```ts
 // server/api/auth.ts
@@ -113,9 +113,9 @@ export default defineEventHandler((event) => {
 })
 ```
 
-## Server Middleware
+## 服务端中间件
 
-Runs on every request before routes:
+在每次请求到达路由前执行：
 
 ```ts
 // server/middleware/auth.ts
@@ -132,7 +132,7 @@ export default defineEventHandler((event) => {
 })
 ```
 
-Access context in routes:
+在路由中访问上下文：
 
 ```ts
 // server/api/profile.ts
@@ -145,7 +145,7 @@ export default defineEventHandler((event) => {
 })
 ```
 
-## Error Handling
+## 错误处理
 
 ```ts
 // server/api/users/[id].ts
@@ -164,9 +164,9 @@ export default defineEventHandler((event) => {
 })
 ```
 
-## Server Utils
+## 服务端工具
 
-Auto-imported in `server/utils/`:
+在 `server/utils/` 下自动导入：
 
 ```ts
 // server/utils/db.ts
@@ -183,9 +183,9 @@ export default defineEventHandler(() => {
 })
 ```
 
-## Server Plugins
+## 服务端插件
 
-Run once when server starts:
+服务启动时执行一次：
 
 ```ts
 // server/plugins/db.ts
@@ -200,7 +200,7 @@ export default defineNitroPlugin((nitroApp) => {
 })
 ```
 
-## Streaming Responses
+## 流式响应
 
 ```ts
 // server/api/stream.ts
@@ -223,9 +223,9 @@ export default defineEventHandler((event) => {
 })
 ```
 
-## Server Storage
+## 服务端存储
 
-Key-value storage with multiple drivers:
+支持多种驱动的键值存储：
 
 ```ts
 // server/api/cache.ts
@@ -242,7 +242,7 @@ export default defineEventHandler(async (event) => {
 })
 ```
 
-Configure storage drivers in `nuxt.config.ts`:
+在 `nuxt.config.ts` 中配置存储驱动：
 
 ```ts
 export default defineNuxtConfig({

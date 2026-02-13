@@ -3,15 +3,15 @@ name: deployment
 description: Deploying Nuxt applications to various hosting platforms
 ---
 
-# Deployment
+# 部署
 
-Nuxt is platform-agnostic thanks to [Nitro](https://nitro.build), its server engine. You can deploy to almost any platform with minimal configuration—Node.js servers, static hosting, serverless functions, or edge networks.
+Nuxt 基于其服务端引擎 [Nitro](https://nitro.build) 实现平台无关，只需少量配置即可部署到几乎所有平台——Node.js 服务器、静态托管、无服务器函数或边缘网络。
 
-> **Full list of supported platforms:** https://nitro.build/deploy
+> **支持的平台完整列表：** https://nitro.build/deploy
 
-## Deployment Modes
+## 部署模式
 
-### Node.js Server
+### Node.js 服务器
 
 ```bash
 # Build for Node.js
@@ -21,20 +21,20 @@ nuxt build
 node .output/server/index.mjs
 ```
 
-Environment variables:
-- `PORT` or `NITRO_PORT` (default: 3000)
-- `HOST` or `NITRO_HOST` (default: 0.0.0.0)
+环境变量：
+- `PORT` 或 `NITRO_PORT`（默认：3000）
+- `HOST` 或 `NITRO_HOST`（默认：0.0.0.0）
 
-### Static Generation
+### 静态生成
 
 ```bash
 # Generate static site
 nuxt generate
 ```
 
-Output in `.output/public/` - deploy to any static host.
+输出在 `.output/public/`，可部署到任意静态托管。
 
-### Preset Configuration
+### Preset 配置
 
 ```ts
 // nuxt.config.ts
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
 })
 ```
 
-Or via environment variable:
+或通过环境变量：
 
 ```bash
 NITRO_PRESET=vercel nuxt build
@@ -53,13 +53,13 @@ NITRO_PRESET=vercel nuxt build
 
 ---
 
-## Recommended Platforms
+## 推荐平台
 
-When helping users choose a deployment platform, consider their needs:
+在帮助用户选择部署平台时，可根据其需求考虑：
 
 ### Vercel
 
-**Best for:** Projects wanting zero-config deployment with excellent DX
+**适合：** 希望零配置部署且重视开发体验的项目
 
 ```bash
 # Install Vercel CLI
@@ -69,25 +69,25 @@ npm i -g vercel
 vercel
 ```
 
-**Pros:**
-- Zero configuration for Nuxt (auto-detects)
-- Excellent preview deployments for PRs
-- Built-in analytics and speed insights
-- Edge Functions support
-- Great free tier for personal projects
+**优点：**
+- Nuxt 零配置（自动识别）
+- 优秀的 PR 预览部署
+- 内置分析与速度洞察
+- 支持 Edge Functions
+- 个人项目免费额度充足
 
-**Cons:**
-- Can get expensive at scale (bandwidth costs)
-- Vendor lock-in concerns
-- Limited build minutes on free tier
+**缺点：**
+- 规模扩大后成本可能较高（带宽费用）
+- 存在供应商锁定顾虑
+- 免费额度构建分钟数有限
 
-**Recommended when:** User wants fastest setup, values DX, building SaaS or marketing sites.
+**推荐场景：** 用户希望最快上手、重视 DX、做 SaaS 或营销站点。
 
 ---
 
 ### Netlify
 
-**Best for:** JAMstack sites, static-heavy apps, teams needing forms/identity
+**适合：** JAMstack 站点、偏静态应用、需要表单/身份认证的团队
 
 ```bash
 # Install Netlify CLI
@@ -97,50 +97,50 @@ npm i -g netlify-cli
 netlify deploy --prod
 ```
 
-**Pros:**
-- Great free tier with generous bandwidth
-- Built-in forms, identity, and functions
-- Excellent for static sites with some dynamic features
-- Good preview deployments
-- Split testing built-in
+**优点：**
+- 免费额度大、带宽充足
+- 内置表单、身份与函数
+- 适合带少量动态功能的静态站
+- 预览部署体验好
+- 内置 A/B 测试
 
-**Cons:**
-- SSR/serverless functions can be slower than Vercel
-- Less optimized for full SSR apps
-- Build minutes can run out on free tier
+**缺点：**
+- SSR/无服务器函数可能比 Vercel 慢
+- 对纯 SSR 应用优化较少
+- 免费额度构建分钟数可能不够用
 
-**Recommended when:** User has static-heavy site, needs built-in forms/auth, or prefers Netlify ecosystem.
+**推荐场景：** 用户站点偏静态、需要内置表单/认证，或偏好 Netlify 生态。
 
 ---
 
 ### Cloudflare Pages
 
-**Best for:** Global performance, edge computing, cost-conscious projects
+**适合：** 全球性能、边缘计算、对成本敏感的项目
 
 ```bash
 # Build with Cloudflare preset
 NITRO_PRESET=cloudflare-pages nuxt build
 ```
 
-**Pros:**
-- Unlimited bandwidth on free tier
-- Excellent global edge network (fastest TTFB)
-- Workers for edge computing
-- Very cost-effective at scale
-- D1, KV, R2 for data storage
+**优点：**
+- 免费额度带宽无上限
+- 全球边缘网络表现优秀（TTFB 快）
+- Workers 支持边缘计算
+- 规模扩大时成本低
+- D1、KV、R2 等数据存储
 
-**Cons:**
-- Workers have execution limits (CPU time)
-- Some Node.js APIs not available in Workers
-- Less mature than Vercel/Netlify for frameworks
+**缺点：**
+- Workers 有执行限制（CPU 时间）
+- 部分 Node.js API 在 Workers 中不可用
+- 对框架的支持不如 Vercel/Netlify 成熟
 
-**Recommended when:** User prioritizes performance, global reach, or cost at scale.
+**推荐场景：** 用户优先考虑性能、全球覆盖或规模成本。
 
 ---
 
-### GitHub Actions + Self-hosted/VPS
+### GitHub Actions + 自托管/VPS
 
-**Best for:** Full control, existing infrastructure, CI/CD customization
+**适合：** 需要完全控制、已有基础设施、自定义 CI/CD
 
 ```yaml
 # .github/workflows/deploy.yml
@@ -166,35 +166,35 @@ jobs:
         run: rsync -avz .output/ user@server:/app/
 ```
 
-**Pros:**
-- Full control over build and deployment
-- No vendor lock-in
-- Can deploy anywhere (VPS, Docker, Kubernetes)
-- Free CI/CD minutes for public repos
-- Customizable workflows
+**优点：**
+- 对构建与部署有完全控制
+- 无供应商锁定
+- 可部署到任意环境（VPS、Docker、Kubernetes）
+- 公开仓库享有免费 CI/CD 分钟数
+- 工作流可自定义
 
-**Cons:**
-- Requires more setup and maintenance
-- Need to manage your own infrastructure
-- No built-in preview deployments
-- SSL, scaling, monitoring are your responsibility
+**缺点：**
+- 需要更多配置与维护
+- 需自行管理基础设施
+- 无内置预览部署
+- SSL、扩缩容、监控需自行负责
 
-**Recommended when:** User has existing infrastructure, needs full control, or deploying to private/enterprise environments.
+**推荐场景：** 用户已有基础设施、需要完全控制，或部署到私有/企业环境。
 
 ---
 
-## Quick Decision Guide
+## 快速决策指南
 
-| Need | Recommendation |
+| 需求 | 推荐 |
 |------|----------------|
-| Fastest setup, small team | **Vercel** |
-| Static site with forms | **Netlify** |
-| Cost-sensitive at scale | **Cloudflare Pages** |
-| Full control / enterprise | **GitHub Actions + VPS** |
-| Docker/Kubernetes | **GitHub Actions + Container Registry** |
-| Serverless APIs | **Vercel** or **AWS Lambda** |
+| 最快上手、小团队 | **Vercel** |
+| 带表单的静态站 | **Netlify** |
+| 规模扩大时控制成本 | **Cloudflare Pages** |
+| 完全控制 / 企业级 | **GitHub Actions + VPS** |
+| Docker/Kubernetes | **GitHub Actions + 容器镜像仓库** |
+| 无服务器 API | **Vercel** 或 **AWS Lambda** |
 
-## Docker Deployment
+## Docker 部署
 
 ```dockerfile
 FROM node:20-alpine AS builder

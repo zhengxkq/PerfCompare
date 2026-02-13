@@ -3,13 +3,13 @@ name: built-in-components
 description: NuxtLink, NuxtPage, NuxtLayout, and other built-in Nuxt components
 ---
 
-# Built-in Components
+# 内置组件
 
-Nuxt provides several built-in components for common functionality.
+Nuxt 为常用功能提供若干内置组件。
 
 ## NuxtLink
 
-Optimized link component with prefetching:
+带预取能力的链接组件：
 
 ```vue
 <template>
@@ -41,7 +41,7 @@ Optimized link component with prefetching:
 
 ## NuxtPage
 
-Renders the current page component (used in layouts):
+渲染当前页面组件（在布局中使用）：
 
 ```vue
 <!-- app/app.vue -->
@@ -52,7 +52,7 @@ Renders the current page component (used in layouts):
 </template>
 ```
 
-With page transitions:
+带页面过渡：
 
 ```vue
 <template>
@@ -60,7 +60,7 @@ With page transitions:
 </template>
 ```
 
-Pass props to page:
+向页面传 props：
 
 ```vue
 <template>
@@ -70,7 +70,7 @@ Pass props to page:
 
 ## NuxtLayout
 
-Controls layout rendering:
+控制布局渲染：
 
 ```vue
 <!-- app/app.vue -->
@@ -81,7 +81,7 @@ Controls layout rendering:
 </template>
 ```
 
-Dynamic layout:
+动态布局：
 
 ```vue
 <template>
@@ -95,7 +95,7 @@ const layout = computed(() => isAdmin ? 'admin' : 'default')
 </script>
 ```
 
-Layout with transitions:
+带过渡的布局：
 
 ```vue
 <template>
@@ -107,7 +107,7 @@ Layout with transitions:
 
 ## NuxtLoadingIndicator
 
-Progress bar for page navigation:
+页面导航进度条：
 
 ```vue
 <!-- app/app.vue -->
@@ -126,7 +126,7 @@ Progress bar for page navigation:
 
 ## NuxtErrorBoundary
 
-Catch and handle errors in child components:
+捕获并处理子组件错误：
 
 ```vue
 <template>
@@ -151,7 +151,7 @@ function handleError(error) {
 
 ## ClientOnly
 
-Render content only on client-side:
+仅在客户端渲染内容：
 
 ```vue
 <template>
@@ -168,7 +168,7 @@ Render content only on client-side:
 
 ## DevOnly
 
-Render content only in development:
+仅在开发环境渲染内容：
 
 ```vue
 <template>
@@ -180,7 +180,7 @@ Render content only in development:
 
 ## NuxtIsland
 
-Server components (experimental):
+服务端组件（实验性）：
 
 ```vue
 <template>
@@ -188,9 +188,9 @@ Server components (experimental):
 </template>
 ```
 
-## NuxtImg and NuxtPicture
+## NuxtImg 与 NuxtPicture
 
-Optimized images (requires `@nuxt/image` module):
+图片优化（需安装 `@nuxt/image` 模块）：
 
 ```vue
 <template>
@@ -214,7 +214,7 @@ Optimized images (requires `@nuxt/image` module):
 
 ## Teleport
 
-Render content outside component tree:
+在组件树外渲染内容：
 
 ```vue
 <template>
@@ -229,7 +229,7 @@ Render content outside component tree:
 </template>
 ```
 
-For SSR, use `<ClientOnly>` with Teleport:
+在 SSR 中配合 `<ClientOnly>` 使用 Teleport：
 
 ```vue
 <template>
@@ -243,7 +243,7 @@ For SSR, use `<ClientOnly>` with Teleport:
 
 ## NuxtRouteAnnouncer
 
-Accessibility: announces page changes to screen readers:
+无障碍：向读屏器播报页面变化：
 
 ```vue
 <!-- app/app.vue -->

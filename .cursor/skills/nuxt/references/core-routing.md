@@ -3,11 +3,11 @@ name: routing
 description: File-based routing, dynamic routes, navigation, and middleware in Nuxt
 ---
 
-# Routing
+# 路由
 
-Nuxt uses file-system routing based on vue-router. Files in `app/pages/` automatically create routes.
+Nuxt 基于 vue-router 使用文件系统路由，`app/pages/` 下的文件会自动生成路由。
 
-## Basic Routing
+## 基础路由
 
 ```
 pages/
@@ -18,9 +18,9 @@ pages/
     └── [id].vue   → /posts/:id
 ```
 
-## Dynamic Routes
+## 动态路由
 
-Use brackets for dynamic segments:
+使用方括号表示动态片段：
 
 ```
 pages/
@@ -28,10 +28,10 @@ pages/
 │   └── [id].vue       → /users/:id
 ├── posts/
 │   └── [...slug].vue  → /posts/* (catch-all)
-└── [[optional]].vue   → /:optional? (optional param)
+└── [[optional]].vue   → /:optional? (可选参数)
 ```
 
-Access route parameters:
+访问路由参数：
 
 ```vue
 <script setup lang="ts">
@@ -41,9 +41,9 @@ console.log(route.params.id)
 </script>
 ```
 
-## Navigation
+## 导航
 
-### NuxtLink Component
+### NuxtLink 组件
 
 ```vue
 <template>
@@ -55,9 +55,9 @@ console.log(route.params.id)
 </template>
 ```
 
-NuxtLink automatically prefetches linked pages when they enter the viewport.
+NuxtLink 会在链接进入视口时自动预取对应页面。
 
-### Programmatic Navigation
+### 编程式导航
 
 ```vue
 <script setup lang="ts">
@@ -71,9 +71,9 @@ function goToPost(id: number) {
 </script>
 ```
 
-## Route Middleware
+## 路由中间件
 
-### Named Middleware
+### 命名中间件
 
 ```ts
 // middleware/auth.ts
@@ -86,7 +86,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
 })
 ```
 
-Apply to pages:
+在页面中应用：
 
 ```vue
 <script setup lang="ts">
@@ -97,9 +97,9 @@ definePageMeta({
 </script>
 ```
 
-### Global Middleware
+### 全局中间件
 
-Name files with `.global` suffix:
+文件名带 `.global` 后缀：
 
 ```ts
 // middleware/logging.global.ts
@@ -108,7 +108,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
 })
 ```
 
-### Inline Middleware
+### 内联中间件
 
 ```vue
 <script setup lang="ts">
@@ -122,9 +122,9 @@ definePageMeta({
 </script>
 ```
 
-## Page Meta
+## 页面元信息
 
-Configure page-level options:
+配置页面级选项：
 
 ```vue
 <script setup lang="ts">
@@ -140,7 +140,7 @@ definePageMeta({
 </script>
 ```
 
-## Route Validation
+## 路由校验
 
 ```vue
 <script setup lang="ts">
@@ -153,9 +153,9 @@ definePageMeta({
 </script>
 ```
 
-## Layouts
+## 布局
 
-Define layouts in `app/layouts/`:
+在 `app/layouts/` 下定义布局：
 
 ```vue
 <!-- layouts/default.vue -->
@@ -180,7 +180,7 @@ Define layouts in `app/layouts/`:
 </template>
 ```
 
-Use in pages:
+在页面中使用：
 
 ```vue
 <script setup lang="ts">
@@ -190,7 +190,7 @@ definePageMeta({
 </script>
 ```
 
-Dynamic layout:
+动态布局：
 
 ```vue
 <script setup lang="ts">
@@ -202,7 +202,7 @@ function enableAdmin() {
 </script>
 ```
 
-## Navigation Hooks
+## 导航钩子
 
 ```vue
 <script setup lang="ts">

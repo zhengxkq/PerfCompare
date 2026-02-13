@@ -3,13 +3,13 @@ name: composables-auto-imports
 description: Auto-imported Vue APIs, Nuxt composables, and custom utilities
 ---
 
-# Composables Auto-imports
+# Composables 自动导入
 
-Nuxt automatically imports Vue APIs, Nuxt composables, and your custom composables/utilities.
+Nuxt 会自动导入 Vue API、Nuxt composables 以及你的自定义 composables/工具函数。
 
-## Built-in Auto-imports
+## 内置自动导入
 
-### Vue APIs
+### Vue API
 
 ```vue
 <script setup lang="ts">
@@ -66,9 +66,9 @@ const url = useRequestURL()
 </script>
 ```
 
-## Custom Composables (`app/composables/`)
+## 自定义 Composables（`app/composables/`）
 
-### Creating Composables
+### 创建 Composable
 
 ```ts
 // composables/useCounter.ts
@@ -102,7 +102,7 @@ export function useAuth() {
 }
 ```
 
-### Using Composables
+### 使用 Composable
 
 ```vue
 <script setup lang="ts">
@@ -112,9 +112,9 @@ const { user, isLoggedIn, login } = useAuth()
 </script>
 ```
 
-### File Scanning Rules
+### 文件扫描规则
 
-Only top-level files are scanned:
+仅扫描顶层文件：
 
 ```
 composables/
@@ -125,14 +125,14 @@ composables/
     └── helper.ts      → NOT auto-imported ✗
 ```
 
-Re-export nested composables:
+重新导出嵌套 composables：
 
 ```ts
 // composables/index.ts
 export { useHelper } from './nested/helper'
 ```
 
-Or configure scanning:
+或配置扫描范围：
 
 ```ts
 // nuxt.config.ts
@@ -146,7 +146,7 @@ export default defineNuxtConfig({
 })
 ```
 
-## Utilities (`app/utils/`)
+## 工具函数（`app/utils/`）
 
 ```ts
 // utils/format.ts
@@ -170,7 +170,7 @@ const price = formatCurrency(99.99)
 </script>
 ```
 
-## Server Utils (`server/utils/`)
+## 服务端工具（`server/utils/`）
 
 ```ts
 // server/utils/db.ts
@@ -192,7 +192,7 @@ export default defineEventHandler(() => {
 })
 ```
 
-## Third-party Package Imports
+## 第三方包导入
 
 ```ts
 // nuxt.config.ts
@@ -216,9 +216,9 @@ export default defineNuxtConfig({
 })
 ```
 
-## Explicit Imports
+## 显式导入
 
-Use `#imports` alias when needed:
+需要时使用 `#imports` 别名：
 
 ```vue
 <script setup lang="ts">
@@ -226,9 +226,9 @@ import { ref, computed, useFetch } from '#imports'
 </script>
 ```
 
-## Composable Context Rules
+## Composable 上下文规则
 
-Nuxt composables must be called in valid context:
+Nuxt composables 必须在合法上下文中调用：
 
 ```ts
 // ❌ Wrong - module level
@@ -245,13 +245,13 @@ export function useMyComposable() {
 }
 ```
 
-**Valid contexts:**
-- `<script setup>` block
-- `setup()` function
-- `defineNuxtPlugin()` callback
-- `defineNuxtRouteMiddleware()` callback
+**合法上下文：**
+- `<script setup>` 块
+- `setup()` 函数
+- `defineNuxtPlugin()` 回调
+- `defineNuxtRouteMiddleware()` 回调
 
-## Disabling Auto-imports
+## 关闭自动导入
 
 ```ts
 // nuxt.config.ts
