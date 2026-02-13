@@ -14,4 +14,4 @@ globs: **/*.ts, **/*.vue, **/*.d.ts
 - 优先使用类型守卫（type guards）进行运行时检查，尽量避免强制类型断言（`as`）
 - 避免使用 `any` 类型，不确定类型时优先使用 `unknown` 或泛型
 - 熟练使用 TypeScript 工具类型（Utility Types，如 `Pick`, `Omit`, `Partial`）来转换类型
-- 在终端运行命令时，默认使用 `pnpm` 作为包管理器
+- 在终端运行命令时，默认使用 `pnpm` 作为包管

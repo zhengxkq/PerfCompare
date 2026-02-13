@@ -28,6 +28,7 @@ export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: '2024-12-31',
   // 静态资源预压缩，减少传输体积（JS/CSS 等）
+  // 渲染降级：见 server/plugins/csr-fallback.ts，SSR 失败时自动降级为 CSR
   nitro: {
     compressPublicAssets: true
   }
